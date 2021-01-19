@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	if( argc > 2)
 	{
 		//check for invalid usage, then exit
-		fprintf(stderr, "Usage: ./krash [-h]\n");
+		fprintf(stderr, "Usage: ./flash [-h]\n");
 		exit(1);
 	}
 	if(argc == 2)
@@ -30,15 +30,15 @@ int main(int argc, char *argv[])
 		// check if second arg is -h
 		if(strcmp(argv[1], "-h") == 0)
 		{
-			// exec to cat out krashHelp.txt
+			// exec to cat out flashHelp.txt
 			char *catArgs[3];
 			catArgs[0] = strdup("cat");
-			catArgs[1] = strdup("krashHelp.txt");
+			catArgs[1] = strdup("flashHelp.txt");
 			catArgs[2] = NULL;
 			execvp(catArgs[0], catArgs);
 			exit(0);
 		}
-		fprintf(stderr, "Usage: ./krash [-h]\n");
+		fprintf(stderr, "Usage: ./flash [-h]\n");
 		exit(1);
 	}
 	else
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		while(true)
 		{
 			redirectPlace = 0;
-			printf("krash: ");
+			printf("flash: ");
 			fgets(input, 256, stdin);
 			// get rid of newline at the end
 			i = 0;
@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
 			// check for help command
 			else if(strcmp(args[0], "help") == 0)
 			{
-				FILE *fp = fopen("krashHelp.txt", "r");
+				FILE *fp = fopen("flashHelp.txt", "r");
 				char tmp;
 				if(fp == NULL) {
 					fprintf(stderr, "Help file Missing. Terminating.\n");
